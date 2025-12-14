@@ -1,0 +1,23 @@
+{
+  "name": "penlight",
+  "version": "0.0.1",
+  "description": "A lightweight, pure JS library for website theming.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vladzodchey/penlight.git"
+  },
+  "keywords": [
+    "themes",
+    "purejs"
+  ],
+  "author": "V. Zhdanov",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/vladzodchey/penlight/issues"
+  },
+  "homepage": "https://github.com/vladzodchey/penlight#readme"
+}
