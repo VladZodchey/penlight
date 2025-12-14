@@ -19,6 +19,7 @@ export function initPenlight() {
     toggleTheme() {
       const theme = getTheme() === "dark" ? "light" : "dark";
       setTheme(theme);
+      return theme;
     },
   };
 }
