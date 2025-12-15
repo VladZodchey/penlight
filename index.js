@@ -1,25 +1,30 @@
-export function initPenlight() {
-  const darkModeMediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
-  setTheme(loadTheme());
-  darkModeMediaQuery.addEventListener("change", () => setTheme(getTheme()));
-  return {
-    getTheme() {
-      return document.documentElement.getAttribute("data-theme");
-    },
-    loadTheme() {
-      return localStorage.getItem("preferred-theme") || getTheme();
-    },
-    saveTheme(theme) {
-      localStorage.setItem("preferred-theme", theme);
-    },
-    setTheme(theme) {
-      document.documentElement.setAttribute("data-theme", theme);
-      saveTheme(theme);
-    },
-    toggleTheme() {
-      const theme = getTheme() === "dark" ? "light" : "dark";
-      setTheme(theme);
-      return theme;
-    },
-  };
-}
+const darkModeMediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
+
+const getTheme = () => {
+  return darkModeMediaQuery.matches ? "dark" : "light";
+};
+const loadTheme = () => {
+  return localStorage.getItem("preferred-theme") || getTheme();
+};
+const saveTheme = (theme) => {
+  localStorage.setItem("preferred-theme", theme);
+};
+const setTheme = (theme) => {
+  document.documentElement.setAttribute("data-theme", theme);
+};
+const overrideTheme = (theme) => {
+  setTheme(theme);
+  saveTheme(theme);
+};
+const toggleTheme = () => {
+  const theme = loadTheme() === "dark" ? "light" : "dark";
+  overrideTheme(theme);
+};
+const forgetTheme = () => {
+  localStorage.removeItem("preferred-theme");
+};
+
+setTheme(loadTheme());
+darkModeMediaQuery.addEventListener("change", () => {
+  setTheme(getTheme());
+});
