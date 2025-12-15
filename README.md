@@ -18,7 +18,7 @@ What it doesn't do:
 
 In a static website, you can pull the package with a simple CDN `<script>`:
 ```html
-<script src="cdn.jsdelivr.net/npm/penlight@0.0.2/index.js"></script>
+<script src="cdn.jsdelivr.net/npm/penlight@0.0.1/index.js"></script>
 ```
 
 This library aims to achieve a very simple thing: to set a `data-theme` attribute on the DOM element.  
