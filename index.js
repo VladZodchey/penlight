@@ -26,5 +26,5 @@ const forgetTheme = () => {
 
 setTheme(loadTheme());
 darkModeMediaQuery.addEventListener("change", () => {
-  setTheme(getTheme());
+  overrideTheme(getTheme());
 });
